@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "shop",
+      "type": "com.webdev2.config.ShopProperties",
+      "sourceType": "com.webdev2.config.ShopProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "shop.currency",
+      "type": "java.lang.String",
+      "sourceType": "com.webdev2.config.ShopProperties"
+    },
+    {
+      "name": "shop.name",
+      "type": "java.lang.String",
+      "sourceType": "com.webdev2.config.ShopProperties"
+    }
+  ],
+  "hints": []
+}
