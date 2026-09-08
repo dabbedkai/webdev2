@@ -1,4 +1,4 @@
-package com.webdev2;
+package com.dabbedkai;
 
 public interface Gradable {
     String computeStanding();
