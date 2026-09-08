@@ -1,4 +1,4 @@
-package com.dabbedkai;
+package com.webdev2;
 
 public class Student implements Gradable {
     private String name;
