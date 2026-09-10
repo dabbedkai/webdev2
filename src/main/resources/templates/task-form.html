@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${pageTitle}">Task Form</title>
+    <style>
+        .error { color: red; font-size: 0.9em; font-weight: bold; }
+        .field-group { margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+    <h1 th:text="${pageTitle}">Task Form</h1>
+
+    <form th:action="@{/tasks/save}" th:object="${task}" method="post">
+        <input type="hidden" th:field="*{id}" />
+
+        <div class="field-group">
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" th:field="*{title}" />
+            <span class="error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</span>
+        </div>
+
+        <div class="field-group">
+            <label for="description">Description:</label><br>
+            <textarea id="description" th:field="*{description}"></textarea>
+            <span class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description Error</span>
+        </div>
+
+        <div class="field-group">
+            <label for="priority">Priority Level (1-5):</label><br>
+            <input type="number" id="priority" th:field="*{priority}" />
+            <span class="error" th:if="${#fields.hasErrors('priority')}" th:errors="*{priority}">Priority Error</span>
+        </div>
+
+        <div class="field-group">
+            <label for="completed">Completed Status:</label>
+            <input type="checkbox" id="completed" th:field="*{completed}" />
+        </div>
+
+        <button type="submit">Save Task</button>
+        <a th:href="@{/tasks}">Cancel</a>
+    </form>
+</body>
+</html>
