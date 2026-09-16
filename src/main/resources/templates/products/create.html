@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Product</title>
+    <style>
+        body { font-family: sans-serif; margin: 2rem; }
+        .form-group { margin-bottom: 1rem; }
+        label { display: block; font-weight: bold; }
+        input { padding: 6px; width: 300px; }
+        .error { color: red; font-size: 0.85rem; display: block; margin-top: 2px; }
+    </style>
+</head>
+<body>
+    <h1>Add New Product</h1>
+    <form th:action="@{/products}" th:object="${product}" method="post">
+        <div class="form-group">
+            <label for="name">Product Name:</label>
+            <input type="text" id="name" th:field="*{name}" />
+            <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <input type="text" id="category" th:field="*{category}" />
+            <span class="error" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price ($):</label>
+            <input type="number" step="0.01" id="price" th:field="*{price}" />
+            <span class="error" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="stock">Stock Quantity:</label>
+            <input type="number" id="stock" th:field="*{stock}" />
+            <span class="error" th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}"></span>
+        </div>
+
+        <button type="submit">Save Product</button>
+        <a th:href="@{/products}">Cancel</a>
+    </form>
+</body>
+</html>

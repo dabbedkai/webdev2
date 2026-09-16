@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>404 Not Found</title>
+    <style>
+        body { font-family: sans-serif; margin: 3rem; text-align: center; }
+        .error-box { background-color: #ffe6e6; border: 1px solid #ff0000; padding: 2rem; display: inline-block; }
+    </style>
+</head>
+<body>
+    <div class="error-box">
+        <h1>404 - Resource Not Found</h1>
+        <p th:text="${errorMessage}">Requested resource was not found.</p>
+        <a th:href="@{/products}">Return to Product List</a>
+    </div>
+</body>
+</html>
